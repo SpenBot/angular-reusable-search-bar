@@ -1,0 +1,73 @@
+<div class="search-component">
+
+
+  <!-- ######## SEARCH INPUTS ######## -->
+  <div class="search-inputs-all">
+
+    <h5>Search</h5>
+
+    <!-- options selector -->
+    <div *ngIf="options.length > 1">
+      <select [(ngModel)]="selectedOption" name="searchOptions">
+          <option
+          *ngFor="let option of options" value="{{option}}">
+            {{option}}
+          </option>
+      </select>
+    </div>
+
+    <!-- search input -->
+    <input
+    [(ngModel)]="searchTerm"
+    placeholder="Search for {{selectedOption}}..."
+    #searchBox (keyup)="search()" />
+
+    <!-- view toggler -->
+    <div *ngIf="view === 'condensed'">
+      <button id ="viewBtn" (click)="toggleView()"
+      >exp</button>
+    </div>
+    <div *ngIf="view === 'expanded'">
+      <button id ="viewBtn" (click)="toggleView()"
+      >min</button>
+    </div>
+
+
+    <!-- clear button -->
+    <div *ngIf="showClearBtn">
+      <button (click)="clearSearch()">Clear Search</button>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- ######## RESULTS ######## -->
+
+  <!-- if: users -->
+
+  <!-- <div class="search-result">
+      <div *ngIf="searchResults !== [] && selectedOption === 'Users'">
+
+        <div
+        *ngFor="let contact of searchResults"
+        [class.condensed]="view === 'condensed'"
+        [class.expanded]="view === 'expanded'"
+        (click)="clickResult(contact.id)">
+
+          <div *ngIf="view === 'expanded'">
+            <img id="user-avatar-{{contact.id}}" src={{contact.photo}}>
+          </div>
+
+          <p routerLink="/memberdetail/{{contact.id}}">
+            {{contact.first_name}} {{contact.last_name}}
+          </p>
+
+        </div>
+
+      </div>
+  </div> -->
+
+
+</div>
