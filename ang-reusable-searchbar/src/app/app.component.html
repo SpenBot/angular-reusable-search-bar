@@ -1,8 +1,25 @@
 <h2> Angular Reusable Search Bar Component </h2>
-<h4> includes configurable options and buttons </h4>
+<h4> (includes configurable options and buttons) </h4>
 
 
 <app-search-bar
-  [options]="['Name', 'Company', 'Group', 'Role']"
+  [options]="['Name', 'Company', 'Team']"
   [contactsAll]="contacts">
 </app-search-bar>
+
+<div class="contacts-list">
+  <div class="contact-titles">
+    <p width="60px">ID</p>
+    <p width="200px">NAME</p>
+    <p width="200px">COMPANY</p>
+    <p width="150px">TEAM</p>
+    <p width="200px">ROLE</p>
+  </div>
+  <div class="contact-item" *ngFor="let contact of contacts">
+    <p width="60px">{{contact.id}}</p>
+    <p width="200px">{{contact.first_name}} {{contact.last_name}}</p>
+    <p width="200px">{{contact.company}}</p>
+    <p width="150px">{{contact.team}}</p>
+    <p width="200px">{{contact.role}}</p>
+  </div>
+</div>

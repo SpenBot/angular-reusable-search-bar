@@ -45,10 +45,41 @@
 
   <!-- ######## RESULTS ######## -->
 
-  <!-- if: users -->
 
-  <!-- <div class="search-result">
-      <div *ngIf="searchResults !== [] && selectedOption === 'Users'">
+  <!-- if: name -->
+
+  <div class="search-result">
+      <div *ngIf="searchResults !== [] && selectedOption === 'Name'">
+
+        <div
+        *ngFor="let contact of searchResults"
+        [class.condensed]="view === 'condensed'"
+        [class.expanded]="view === 'expanded'"
+        (click)="clickResult(contact.id)">
+
+          <div *ngIf="view === 'expanded'">
+            <img  src='assets/images/icon-user-default.png' alt="student"/>
+          </div>
+
+          <!-- <p routerLink="/memberdetail/{{contact.id}}"> -->
+          <p style="margin: 0 15px;">
+            {{contact.id}}
+          </p>
+          <p style="margin: 0 15px;">
+            {{contact.first_name}} {{contact.last_name}}
+          </p>
+
+        </div>
+
+      </div>
+  </div>
+
+
+
+  <!-- if: company -->
+
+  <div class="search-result">
+      <div *ngIf="searchResults !== [] && selectedOption === 'Company'">
 
         <div
         *ngFor="let contact of searchResults"
@@ -60,14 +91,61 @@
             <img id="user-avatar-{{contact.id}}" src={{contact.photo}}>
           </div>
 
-          <p routerLink="/memberdetail/{{contact.id}}">
+          <!-- <p routerLink="/memberdetail/{{contact.id}}"> -->
+          <p style="margin: 0 15px;">
+            {{contact.company}}
+          </p>
+          <p style="margin: 0 15px;">
+            {{contact.id}}
+          </p>
+          <p style="margin: 0 15px;">
             {{contact.first_name}} {{contact.last_name}}
           </p>
 
         </div>
 
       </div>
-  </div> -->
+  </div>
+
+
+
+
+  <!-- if: company -->
+
+  <div class="search-result">
+      <div *ngIf="searchResults !== [] && selectedOption === 'Team'">
+
+        <div
+        *ngFor="let contact of searchResults"
+        [class.condensed]="view === 'condensed'"
+        [class.expanded]="view === 'expanded'"
+        (click)="clickResult(contact.id)">
+
+          <div *ngIf="view === 'expanded'">
+            <img id="user-avatar-{{contact.id}}" src={{contact.photo}}>
+          </div>
+
+          <!-- <p routerLink="/memberdetail/{{contact.id}}"> -->
+          <p style="margin: 0 15px;">
+            {{contact.team}}
+          </p>
+          <p style="margin: 0 15px;">
+            {{contact.id}}
+          </p>
+          <p style="margin: 0 15px;">
+            {{contact.first_name}} {{contact.last_name}}
+          </p>
+
+        </div>
+
+      </div>
+  </div>
+
+
+
+
+
+
 
 
 </div>

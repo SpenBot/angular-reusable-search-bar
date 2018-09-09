@@ -1,6 +1,7 @@
 :host {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 h2 {
@@ -8,4 +9,33 @@ h2 {
 }
 h4 {
   margin: 0 auto;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 70%;
+  background-color: rgb(250, 250, 250)
+}
+
+.contact-titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  border-top: solid 1px gray;
+  justify-content: space-between;
+}
+
+.contact-titles p {
+  margin: 15px 10px;
+}
+
+.contact-item p {
+  margin: 5px 10px;
 }

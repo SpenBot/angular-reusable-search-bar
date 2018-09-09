@@ -4,7 +4,7 @@ export interface Contact {
   first_name: string;
   last_name: string;
   company: string;
-  group: string;
+  team: string;
   role: string;
 
 }

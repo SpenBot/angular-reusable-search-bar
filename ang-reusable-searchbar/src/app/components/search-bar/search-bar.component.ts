@@ -56,7 +56,7 @@ export class SearchBarComponent implements OnInit {
   //// SEARCH BY OPTION ////
   searchByOption (): void {
 
-    // IF SEARCHING USERS //
+    // IF SEARCHING NAME //
     if (this.selectedOption === "Name") {
       this.contactsAll.forEach(ct => {
         let fN = ct.first_name.toLowerCase();
@@ -69,12 +69,38 @@ export class SearchBarComponent implements OnInit {
       })
     }
 
+    // IF SEARCHING COMPANY //
+    if (this.selectedOption === "Company") {
+      this.contactsAll.forEach(ct => {
+        let comp = ct.company.toLowerCase();
+        let searchItem = this.searchTerm.toLowerCase();
+
+        if ( comp.includes(`${searchItem}`) ) {
+          this.searchResults.push(ct)
+        }
+      })
+    }
+
+    // IF SEARCHING TEAM //
+    if (this.selectedOption === "Team") {
+      this.contactsAll.forEach(ct => {
+        let team = ct.team.toLowerCase();
+        let searchItem = this.searchTerm.toLowerCase();
+
+        if ( team.includes(`${searchItem}`) ) {
+          this.searchResults.push(ct)
+        }
+      })
+    }
+
+
+
   }
 
   //// CLICK RESULT ////
-  // clickResult (id): void {
-  //   this.router.navigate([`memberdetail/${id}`])
-  // }
+  clickResult (id): void {
+    // this.router.navigate([`memberdetail/${id}`])
+  }
 
   //// SET CLEAR BUTTON ////
   setClearBtn (): void {
